@@ -27,4 +27,4 @@ test_with_python3:
   image: registry.labs.nic.cz/turris/python-ubus
   script:
     - export LD_LIBRARY_PATH=:/usr/local/lib
-    - python setup.py test
+    - python3 setup.py test
