@@ -15,8 +15,8 @@ build_image:
   script:
     - cd CI
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.nic.cz
-    - docker build -t registry.nic.cz/turris/python-ubus .
-    - docker push registry.nic.cz/turris/python-ubus:latest
+    - docker build -t registry.nic.cz/turris/python-ubus/python3-only .
+    - docker push registry.nic.cz/turris/python-ubus/python3-only:latest
   tags:
     - dind
   only:
@@ -24,7 +24,7 @@ build_image:
 
 test_with_python3:
   stage: test
-  image: registry.nic.cz/turris/python-ubus
+  image: registry.nic.cz/turris/python-ubus/python3-only
   script:
     - export LD_LIBRARY_PATH=:/usr/local/lib
     - python setup.py test
