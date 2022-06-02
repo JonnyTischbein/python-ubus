@@ -766,6 +766,11 @@ bool test_policies(const struct blobmsg_policy *policies, int n_policies, struct
 		int type = blobmsg_type(cur);
 		int pol_idx;
 
+         	// Skip comparision if RPC session ID is given
+		if (!strcmp("ubus_rpc_session", name)){
+		        continue;
+		}
+
 		// Iterate through policies
 		for (pol_idx = 0; pol_idx < n_policies; pol_idx++) {
 
